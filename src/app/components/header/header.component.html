@@ -10,7 +10,7 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-primary" href="#">Link</a>
+        <a class="nav-link text-primary" href="#">{{ title }}</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
@@ -18,8 +18,8 @@
     </ul>
 
     <form class="form-inline my-2 my-lg-0 d-flex flex-lg-fill">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2"name="searchText" [(ngModel)]="searchText"placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{{ searchText }}</button>
     </form>
   </div>
 </nav>

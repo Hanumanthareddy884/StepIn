@@ -5,6 +5,10 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDialog} from '@angular/material/dialog';
+import { EmployeeComponent } from './components/employee/employee.component';
+import{MatFormFieldModule} from '@angular/material/form-field';
+
 
 @Component({
   selector: 'app-root',
@@ -15,10 +19,18 @@ import {MatButtonModule} from '@angular/material/button';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatFormFieldModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'StepIn';
+
+  constructor(private _dialog: MatDialog){}
+
+
+  openAddEditForm(){
+    this._dialog.open(EmployeeComponent);
+  }
 }

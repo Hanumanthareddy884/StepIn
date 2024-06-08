@@ -7,7 +7,6 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialog} from '@angular/material/dialog';
 import { EmployeeComponent } from './components/employee/employee.component';
-import{MatFormFieldModule} from '@angular/material/form-field';
 
 
 @Component({
@@ -19,7 +18,8 @@ import{MatFormFieldModule} from '@angular/material/form-field';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatFormFieldModule,
+    MatIconModule,
+    EmployeeComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

@@ -1,0 +1,43 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "employees": [
+    {
+      "id": "5e60",
+      "firstname": "Hanumanthareddy",
+      "lastname": "H",
+      "email": "reddyreddy884@gmail.com",
+      "dob": "2024-06-02T18:30:00.000Z",
+      "education": "PUC",
+      "company": "HPI",
+      "package": "3.5",
+      "gender": "Male",
+      "exp": "2"
+    }
+  ]
+}

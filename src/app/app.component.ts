@@ -7,6 +7,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialog} from '@angular/material/dialog';
 import { EmployeeComponent } from './components/employee/employee.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @Component({
@@ -20,6 +21,7 @@ import { EmployeeComponent } from './components/employee/employee.component';
     MatButtonModule,
     MatIconModule,
     EmployeeComponent,
+    HttpClientModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

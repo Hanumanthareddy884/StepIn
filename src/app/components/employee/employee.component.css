@@ -1,5 +1,10 @@
-
-.row{
-  display: flex;
+.content{
+  padding-top: 10px;
+}
+.rows{
+  display:flex !important;
   gap: 10px;
+}
+.action{
+  padding: 0px 25px 20px;
 }

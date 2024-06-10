@@ -69,15 +69,28 @@ export class EmployeeComponent implements OnInit  {
   }
   onFormSubmit(){
     if(this.empForm.valid){
-      this._emp.addEmployee(this.empForm.value).subscribe({
-        next:(val:any)=>{
-          alert('Added successfully');
-          this._dialog.close(true);
+      if(this.data){
+        this._emp.updateEmployee(this.data.id,this.empForm.value).subscribe({
+          next:(val:any)=>{
+            alert('Updated successfully');
+            this._dialog.close(true);
 
-        },error:(err:any)=>{
-          console.error(err);
-        }
-      })
+          },error:(err:any)=>{
+            console.error(err);
+          }
+        });
+      }else{
+        this._emp.addEmployee(this.empForm.value).subscribe({
+          next:(val:any)=>{
+            alert('Added successfully');
+            this._dialog.close(true);
+
+          },error:(err:any)=>{
+            console.error(err);
+          }
+        });
+      }
+
       // console.log(this.empForm.value);
     }
   }

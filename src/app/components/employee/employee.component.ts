@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit, inject } from '@angular/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 
@@ -14,6 +14,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeService } from '../../services/employee.service';
 import { DialogRef } from '@angular/cdk/dialog';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AppComponent } from '../../app.component';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-employee',
@@ -32,17 +34,19 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     NgFor,
     HttpClientModule,
+    MatDialogModule
 
   ],
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.css'
 })
-export class EmployeeComponent {
+export class EmployeeComponent implements OnInit  {
   empForm:FormGroup;
   educations: string[] = [ "SSLC","PUC","Diploma","UG"];
   constructor(private _fb:FormBuilder,
     private _emp:EmployeeService,
-    private _dialog:DialogRef<EmployeeComponent>,
+    private _dialog:MatDialogRef<EmployeeComponent>,
+    @Inject(MAT_DIALOG_DATA) public data:any
   ){
     this.empForm = this._fb.group({
       firstname:'',
@@ -56,13 +60,20 @@ export class EmployeeComponent {
       exp:''
     })
   }
+  ngOnInit(): void {
+      this.empForm.patchValue(this.data);
+  }
 
+  onClose(){
+    this._dialog.close();
+  }
   onFormSubmit(){
     if(this.empForm.valid){
       this._emp.addEmployee(this.empForm.value).subscribe({
         next:(val:any)=>{
           alert('Added successfully');
-          this._dialog.close();
+          this._dialog.close(true);
+
         },error:(err:any)=>{
           console.error(err);
         }
@@ -70,4 +81,6 @@ export class EmployeeComponent {
       // console.log(this.empForm.value);
     }
   }
+
+
 }
